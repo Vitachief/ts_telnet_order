@@ -225,6 +225,7 @@ def do_work():
     debug_folder = "{}\\script_logs".format(target_folder_curr)
     curr_time = datetime.datetime.now().strftime('%H-%M-%S')
     filename = '{}\\{}'.format(target_folder_curr, curr_time)
+    create_folders({debug_folder, target_folder_curr})
     with Telnet('localhost', 25639) as ts:
         print("Authenticating...")
         ts.write(b'auth apikey=' + apikey + b'\n')
@@ -304,7 +305,7 @@ def main_loop():
     print("Let's start!")
     in_process = False
     while True:
-        next_sleep = how_much_to_sleep()
+        next_sleep = 0#how_much_to_sleep()
         if next_sleep == 0:
             print('Start working')
             in_process = True
