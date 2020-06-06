@@ -225,7 +225,7 @@ def do_work():
     debug_folder = "{}\\script_logs".format(target_folder_curr)
     curr_time = datetime.datetime.now().strftime('%H-%M-%S')
     filename = '{}\\{}'.format(target_folder_curr, curr_time)
-    create_folders({debug_folder, target_folder_curr})
+    create_folders({target_folder, debug_folder, target_folder_curr})
     with Telnet('localhost', 25639) as ts:
         print("Authenticating...")
         ts.write(b'auth apikey=' + apikey + b'\n')
