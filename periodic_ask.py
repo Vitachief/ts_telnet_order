@@ -30,7 +30,7 @@ import configparser
 ChanInfo = namedtuple('ChanInfo', ['cid', 'pid', 'name', 'client_count'])
 ClientInfo = namedtuple('ClientInfo', ['clid', 'client_db_id', 'nickname', 'client_servergroups', 'uid', 'cid'])
 
-
+print('Reading config...')
 def read_config():
     channels_section = 'Channels'
     general_section = 'General'
@@ -45,7 +45,7 @@ def read_config():
 
 (apikey_str, server_group, target_folder, interested_channels) = read_config()
 apikey = apikey_str.encode()
-
+print('Reading config done')
 
 def create_folders(folders_list):
     for folder in folders_list:
@@ -321,5 +321,5 @@ def main_loop():
             print('{} Out of working hours, sleeping for {}'.format(datetime.datetime.now(), next_sleep))
             time.sleep(next_sleep)
 
-
+print('Starting main loop...')
 main_loop()
