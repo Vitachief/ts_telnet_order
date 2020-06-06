@@ -1,0 +1,1 @@
+python -c "import helper_functions; helper_functions.connect_and_get_chan_list()"
