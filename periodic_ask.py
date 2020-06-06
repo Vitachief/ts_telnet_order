@@ -35,7 +35,7 @@ def read_config():
     channels_section = 'Channels'
     general_section = 'General'
     config = configparser.ConfigParser()
-    config.read('config.ini')
+    config.read('config.ini', encoding='utf8')
     # Reading interested channels
     interested_chans = {}
     for key in config[channels_section]:
@@ -271,13 +271,13 @@ def how_much_to_sleep():
 def get_event_name_by_curr_date():
     curr_time = datetime.datetime.now()
     if curr_time.weekday() == 3 and curr_time.hour == 20:
-        return 'Ремесло'
+        return 'ремесло'
     elif curr_time.weekday() == 3 and curr_time.hour == 22:
-        return 'ГвГ'
+        return 'гвг'
     elif curr_time.weekday() == 5:
-        return 'МБГ_Садеман'
+        return 'мбг_садеман'
     elif curr_time.weekday() == 6:
-        return 'ГвГ'
+        return 'гвг'
 
 
 def get_needed_event_by_curr_date():
@@ -305,7 +305,7 @@ def main_loop():
     print("Let's start!")
     in_process = False
     while True:
-        next_sleep = 0#how_much_to_sleep()
+        next_sleep = how_much_to_sleep()
         if next_sleep == 0:
             print('Start working')
             in_process = True
